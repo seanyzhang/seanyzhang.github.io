@@ -1,0 +1,107 @@
+.nav-left {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-center {
+    display: flex;
+    flex-direction: row;
+    flex: 4;
+    justify-content: space-evenly;
+    font-style: italic;
+    padding-left: clamp(0,1vw,15%);
+    padding-right: clamp(0,1vw,15%);
+}
+
+.nav-right {
+    display: flex;
+    flex: .5;
+    justify-content: center;
+}
+
+.nav-links{
+    display: flex;
+    gap: 5px;
+    padding: 10px 12px;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-links:hover {
+  background-color: rgb(56, 56, 56);
+}
+
+.sign {
+    font-family: Zhi Mang Xing;
+    text-align: center;
+    font-size: clamp(18px, 2vw, 40px);
+    margin-left: 5px;
+    border-radius: 5px;
+    padding: 9.5px 12px;
+    background-color: #1f1f1f; 
+    color: rgb(211, 211, 211);
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.sign:hover {
+    background-color: rgb(56, 56, 56);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    color: rgb(211, 211, 211);
+    vertical-align: middle;
+    font-size: clamp(15px, 1em, 26px);
+    line-height: clamp(15px, 1em, 26px);;
+    padding-bottom:2px;
+    margin: none;
+  }
+
+  .theme-toggle {
+    background-color: #1f1f1f;
+    border: none;
+    color: rgb(211, 211, 211);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .theme-toggle:hover {
+    background-color: rgb(56, 56, 56);
+  }
+
+  @media(max-width: 660px) {
+    .nav-left {
+      flex: 0.5;
+    }
+    .shorten-text {
+      display: none;
+    }
+    .nav-links {
+      margin-left: clamp(5px,1%,10px);
+      margin-right: clamp(5px,1%,10px);
+    }
+  }
+  
+  @media(max-width: 635px) {
+    .nav-left {
+      flex: 0.5;
+    }
+    .shorten-text {
+      display: none;
+    }
+    .hyperlink-shown {
+      display: none;
+    }
+    .nav-links {
+      margin-left: clamp(5px,1%,5px);
+      margin-right: clamp(5px,1%,5px);
+    }
+  }

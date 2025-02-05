@@ -1,0 +1,32 @@
+body {
+    font-family: "Nokora", sans-serif;
+    color: rgb(212, 212, 212); 
+    margin: 0;
+    overflow: hidden;
+    background-color: #1f1f1f; 
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+    height: clamp(50px, 10vh, 80px);
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+p, a{
+    color: rgb(212, 212, 212);
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    cursor: pointer;
+}

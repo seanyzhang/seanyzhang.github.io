@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - clamp(50px, 10vmin, 80px) - 10px);
+    top: clamp(50px, 10vh, 80px);
+    overflow: hidden;
+    background-color: #1f1f1f;
+    margin: 5px 0;
+    justify-content: center;
+}
+
+.empty-space {
+    flex: 1;
+    background-color: #1f1f1f; 
+}
+
+.main-content {
+    display: flex;
+    flex: 6;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.page {
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color:rgb(56, 56, 56);
+    height: min(100%, 100vw / 2.0909090909);
+    width: min(100%, 100vh * 2.0909090909);
+}
+
+.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
