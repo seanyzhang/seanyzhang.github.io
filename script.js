@@ -5,13 +5,11 @@ let ids = {0:'Home', 1:'About', 2:'Skills', 3:'Projects', 4:'Experiences', 5:'Re
 let touchStartY, touchEndY;
 
 document.addEventListener('wheel', (event) => {
-    if (isScrolling) {
-        return;
-    }
+    if (isScrolling) return;
 
     isScrolling = true;
-    setTimeout(function() {isScrolling = false, 300});
-
+    setTimeout(function() {isScrolling = false;}, 300);
+    
     if (event.deltaY > 0) {
         showPage(currentPage + 1);
     } else {
@@ -20,22 +18,18 @@ document.addEventListener('wheel', (event) => {
 });
 
 document.addEventListener('touchstart', (event) => {
-    event.preventDefault();
-    touchStartY = event.touches[0].clientY;
+    touchStartY = event.changedTouches[0].clientY;
+});
 
-    function endTouch(event) {
-        touchEndY = event.changedTouches[0].clientY;
-        let swipeDistance = touchStartY - touchEndY;
+document.addEventListener('touchend', (event) => {
+    touchEndY = event.changedTouches[0].clientY;
+    let swipeDistance = touchStartY - touchEndY;
 
-        if (swipeDistance > 50) {
-            showPage(currentPage + 1);
-        } else if (swipeDistance < -50) {    
-            showPage(currentPage - 1);
-        }
-        
-        document.removeEventListener('touchend', endTouch);
+    if (swipeDistance > 50) {
+        showPage(currentPage + 1);
+    } else if (swipeDistance < -50) {    
+        showPage(currentPage - 1);
     }
-    document.addEventListener('touchend', endTouch);
 });
 
 function showPage(index) {
