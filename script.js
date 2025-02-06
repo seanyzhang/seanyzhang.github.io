@@ -18,7 +18,7 @@ document.addEventListener('wheel', (event) => {
 });
 
 document.addEventListener('touchstart', (event) => {
-    touchStartY = event.changedTouches[0].clientY;
+    touchStartY = event.Touches[0].clientY;
 });
 
 document.addEventListener('touchend', (event) => {
