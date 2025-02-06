@@ -2,12 +2,15 @@ let currentPage = 0;
 let pages = document.querySelectorAll('.page');
 let isScrolling = false;
 let ids = {0:'Home', 1:'About', 2:'Skills', 3:'Projects', 4:'Experiences', 5:'Resume'};
+let touchStartY, touchEndY;
 
 document.addEventListener('wheel', (event) => {
-    if (isScrolling) return;
+    if (isScrolling) {
+        return;
+    }
 
     isScrolling = true;
-    setTimeout(() => isScrolling = false, 300);
+    setTimeout(function() {isScrolling = false, 300});
 
     if (event.deltaY > 0) {
         showPage(currentPage + 1);
@@ -16,17 +19,34 @@ document.addEventListener('wheel', (event) => {
     }
 });
 
+document.addEventListener('touchstart', (event) => {
+    event.preventDefault();
+    touchStartY = event.touches[0].clientY;
+
+    function endTouch(event) {
+        touchEndY = event.changedTouches[0].clientY;
+        let swipeDistance = touchStartY - touchEndY;
+
+        if (swipeDistance > 50) {
+            showPage(currentPage + 1);
+        } else if (swipeDistance < -50) {    
+            showPage(currentPage - 1);
+        }
+        
+        document.removeEventListener('touchend', endTouch);
+    }
+    document.addEventListener('touchend', endTouch);
+});
+
 function showPage(index) {
     if (index < 0 || index >= pages.length) return; // Prevents out-of-bounds errors
-
-    pages.forEach((page, i) => {
-        page.classList.remove('active');
-        if (i === index) {
-            document.title = ids[i] + ' | Sean\'s Website';
-            page.classList.add('active');
-        }
-    });
-
+    
+    if (currentPage != index && currentPage < pages.length && currentPage >= 0) {
+        pages[currentPage].classList.remove('active');
+    }
+    
+    pages[index].classList.add('active');
+    document.title = ids[index] + ' | Sean\'s Portfolio';
     currentPage = index;
 }
 
