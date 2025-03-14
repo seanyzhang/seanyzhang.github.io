@@ -1,5 +1,5 @@
 # First Website
-Using HTML, CSS and some JavaScript, I have coded my first website. 
+much too messy. Rebuilding with JS and React, and with clean code and helpful comments.
 
 ## WIP Areas:
 Next: About, Skills, Projects, Experiences, Resume sections
